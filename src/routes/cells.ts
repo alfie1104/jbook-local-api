@@ -28,9 +28,10 @@ export const createCellsRouter = (filename: string, dir: string) => {
       res.send(JSON.parse(result));
     } catch (err) {
       //If read throws an error
-      //Inspect the error, see if it says that the file doesn't exist
       if (isLocalApiError(err)) {
+        //Inspect the error, see if it says that the file doesn't exist
         if (err.code === "ENOENT") {
+          //error no-entity
           await fs.writeFile(fullPath, "[]", "utf-8");
           res.send([]);
         }
