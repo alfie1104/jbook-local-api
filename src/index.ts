@@ -22,7 +22,9 @@ export const serve = (
       })
     );
   } else {
-    const packagesPath = require.resolve("local-client/build/index.html");
+    const packagesPath = require.resolve(
+      "@jsnote-peter/local-client/build/index.html"
+    );
     app.use(express.static(path.dirname(packagesPath))); //path.dirname(packagesPath) : absolute path of local-client/build/index.html
   }
 
